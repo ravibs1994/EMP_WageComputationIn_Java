@@ -3,6 +3,7 @@ package com.brigelabz;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
+
 public class Employee {
 	public static void main(String[] args) {
 		// object created
@@ -35,11 +36,12 @@ public class Employee {
 				System.out.println("Enter MaxDays ");
 				maxDays = sc.nextInt();
 				EmpWageBuilder1 c1 = new EmpWageBuilder1(company, empRatePerHour, fullDayHour, partDayHour, maxDays);// WAGES_PER_HOUR,FULL_DAY_HOUR,
-				// PART_TIME_DAY_HOUR,DAYS_IN_MONTH
+
 				Iterator it = c1.CalculateEmpWages().iterator();
 				while (it.hasNext()) {
 					al.add(it.next());
 				}
+				c1.totalWagesByCompany();
 				System.out.println(" ");
 				break;
 			case 1:
@@ -59,6 +61,7 @@ public class Employee {
 				while (it2.hasNext()) {
 					al.add(it2.next());
 				}
+				c2.totalWagesByCompany();
 				System.out.println(" ");
 				break;
 			case 2:
@@ -77,6 +80,7 @@ public class Employee {
 				while (it3.hasNext()) {
 					al.add(it3.next());
 				}
+				c3.totalWagesByCompany();
 				System.out.println(" ");
 				break;
 			}

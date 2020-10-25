@@ -59,4 +59,10 @@ public class EmpWageBuilder1 implements EmpInterface {
 		return al;
 	}// CalculateEmpWages() method close
 
+	public void totalWagesByCompany() {
+		int alSize = al.size();
+		System.out.println(alSize);
+		System.out.println("Company Name=: " + companyName + "Total Wages=: " + al.get(alSize - 1));
+	}
+
 }
