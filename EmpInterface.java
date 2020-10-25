@@ -1,4 +1,7 @@
 package com.brigelabz;
+
+import java.util.ArrayList;
+
 public interface EmpInterface {
-	public int CalculateEmpWages();
+	public ArrayList<Object> CalculateEmpWages();
 }
