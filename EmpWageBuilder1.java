@@ -1,14 +1,14 @@
 package com.brigelabz;
 
 public class EmpWageBuilder1 implements EmpInterface{
-	static String companyName;
+	String companyName;
 	int wages_Per_Hour;
 	int full_Day_Hour;
 	int part_Time_Day_Hour;
 	int days_In_Month;
 	public EmpWageBuilder1(String companyName, int wages_Per_Hour, int full_Day_Hour, int part_Time_Day_Hour,
 			int days_In_Month) {
-		EmpWageBuilder1.companyName = companyName;
+		this.companyName = companyName;
 		this.wages_Per_Hour = wages_Per_Hour;
 		this.full_Day_Hour = full_Day_Hour;
 		this.part_Time_Day_Hour = part_Time_Day_Hour;

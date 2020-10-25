@@ -1,4 +1,6 @@
 package com.brigelabz;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -14,18 +16,20 @@ public class Employee {
 		int partDayHour = 0;
 		int maxDays = 0;
 		int totalWages = 0;
+		String company = "";
 		String choice = "";
 		Scanner sc = new Scanner(System.in);
-		//Using Hashmap Storing multiple Companies Wages instead of Array
-		HashMap<String, Integer> h1 = new HashMap<String, Integer>();
-		Set entrySet = h1.entrySet();
+		// HashMap<String, Integer> h1 = new HashMap<String, Integer>();
+		// Set entrySet = h1.entrySet();
+		// Using Arraylist Storing multiple Companies Wages instead of Hashmap
+		ArrayList<Object> al = new ArrayList<Object>();
 		// method call
 		do {
 			int random = (int) Math.floor(Math.random() * 10) % 3;
 			switch (random) {
 			case 0:
 				System.out.println(" Enter Company Name ");
-				EmpWageBuilder1.companyName = sc.next();
+				company = sc.next();
 				System.out.println("Enter empRatePer Hour ");
 				empRatePerHour = sc.nextInt();
 				System.out.println("Enter Full day Hour ");
@@ -34,13 +38,13 @@ public class Employee {
 				partDayHour = sc.nextInt();
 				System.out.println("Enter MaxDays ");
 				maxDays = sc.nextInt();
-				EmpWageBuilder1 c1 = new EmpWageBuilder1(EmpWageBuilder1.companyName, empRatePerHour, fullDayHour, partDayHour, maxDays);// WAGES_PER_HOUR,FULL_DAY_HOUR,
-																													// PART_TIME_DAY_HOUR,DAYS_IN_MONTH
+				EmpWageBuilder1 c1 = new EmpWageBuilder1(company, empRatePerHour, fullDayHour, partDayHour, maxDays);// WAGES_PER_HOUR,FULL_DAY_HOUR,
+				// PART_TIME_DAY_HOUR,DAYS_IN_MONTH
 				totalWages = c1.CalculateEmpWages();
 				break;
 			case 1:
 				System.out.println(" Enter Company Name ");
-				EmpWageBuilder1.companyName = sc.next();
+				company = sc.next();
 				System.out.println("Enter empRatePer Hour ");
 				empRatePerHour = sc.nextInt();
 				System.out.println("Enter Full day Hour ");
@@ -49,13 +53,13 @@ public class Employee {
 				partDayHour = sc.nextInt();
 				System.out.println("Enter MaxDays ");
 				maxDays = sc.nextInt();
-				EmpWageBuilder1 c2 = new EmpWageBuilder1(EmpWageBuilder1.companyName, empRatePerHour, fullDayHour, partDayHour, maxDays);// WAGES_PER_HOUR,FULL_DAY_HOUR,
-																													// PART_TIME_DAY_HOUR,DAYS_IN_MONTH
+				EmpWageBuilder1 c2 = new EmpWageBuilder1(company, empRatePerHour, fullDayHour, partDayHour, maxDays);// WAGES_PER_HOUR,FULL_DAY_HOUR,
+				// PART_TIME_DAY_HOUR,DAYS_IN_MONTH
 				totalWages = c2.CalculateEmpWages();
 				break;
 			case 2:
 				System.out.println(" Enter Company Name ");
-				EmpWageBuilder1.companyName = sc.next();
+				company = sc.next();
 				System.out.println("Enter empRatePer Hour ");
 				empRatePerHour = sc.nextInt();
 				System.out.println("Enter Full day Hour ");
@@ -64,17 +68,19 @@ public class Employee {
 				partDayHour = sc.nextInt();
 				System.out.println("Enter MaxDays ");
 				maxDays = sc.nextInt();
-				EmpWageBuilder1 c3 = new EmpWageBuilder1(EmpWageBuilder1.companyName, empRatePerHour, fullDayHour, partDayHour, maxDays);// WAGES_PER_HOUR,FULL_DAY_HOUR,PART_TIME_DAY_HOUR,DAYS_IN_MONTH
+				EmpWageBuilder1 c3 = new EmpWageBuilder1(company, empRatePerHour, fullDayHour, partDayHour, maxDays);// WAGES_PER_HOUR,FULL_DAY_HOUR,PART_TIME_DAY_HOUR,DAYS_IN_MONTH
 				totalWages = c3.CalculateEmpWages();
 				break;
 			}
-			h1.put(EmpWageBuilder1.companyName, totalWages);
+			// h1.put(EmpWageBuilder1.companyName, totalWages);
+			al.add(company);
+			al.add(totalWages);
 			// Obtaining an iterator for the entry set
-			Iterator it = entrySet.iterator();
+			Iterator it = al.iterator();
 			while (it.hasNext()) {
-				Map.Entry me = (Map.Entry) it.next();
-				System.out.println("Company Name=: " + me.getKey() + " & " + " Total Wages: " + me.getValue());
+				System.out.print(it.next() + " ,");
 			}
+			System.out.println(" ");
 			System.out.println("Do you want to Continue Y/N");
 			choice = sc.next();
 		} while (choice.equalsIgnoreCase("Y"));
